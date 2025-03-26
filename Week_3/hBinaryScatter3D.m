@@ -1,4 +1,4 @@
-function hBinaryScatter(input,labels,markerList,markerColorList,markerSize)
+function hBinaryScatter3D(input, labels, markerColorList, markerSize)
 
 arguments
 % The input is an m-by-n dataset
@@ -6,7 +6,6 @@ arguments
 % n: number of features
 input
 labels
-markerList
 markerColorList
 markerSize
 end
@@ -23,16 +22,18 @@ if n == 1 % 1D
             marker = 'o';
             markerColor = 'b';
         end
-        plot(input(j),labels(j),"Marker",marker,"MarkerEdgeColor",markerColor,"MarkerSize",markerSize,...
-            "LineWidth",1.5,"LineStyle","none")
+        plot(input(j), labels(j), "Marker", marker, "MarkerEdgeColor", markerColor, "MarkerSize", markerSize,...
+            "LineWidth", 1.5, "LineStyle", "none")
         hold on
     end
     hold off
 
 elseif n == 2 % 2D
     for i = 1:m
-        plot(input(i,1),input(i,2),"Marker",markerList{labels(i)+1},"MarkerEdgeColor",markerColorList{labels(i)+1},...
-            "MarkerSize",(labels(i)*0.5*markerSize)+markerSize,"LineWidth",1.5,"LineStyle","none")
+        plot3(input(i,1), input(i,2), labels(i), "Marker", 'o', "MarkerEdgeColor", "none", ...
+            "MarkerFaceColor", markerColorList{labels(i)+1},...
+            "MarkerSize", (labels(i)*markerSize) + (1-labels(i))*markerSize, ...
+            "LineWidth",1.5, "LineStyle","none")
         hold on
     end
     hold off

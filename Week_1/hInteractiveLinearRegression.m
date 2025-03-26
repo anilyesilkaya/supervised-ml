@@ -148,9 +148,7 @@ drawnow
 
 end
 
-
 %% Local function definition
-
 function J_mtx = costFunctionSurf(x,y,weight_vec,bias_vec)
 m = length(x);
 J_mtx = [];

@@ -44,7 +44,7 @@ while ~stopFlag
     dJdwj = zeros(m,n); % partial derivative
     for j = 1:n
         for i = 1:m
-            dJdwj(i,j) = (1/m)*( ( w.'*X_train(i,:).'+b-y_train(i) )*X_train(i,j) );
+            dJdwj(i,j) = (1/m)*( ( w.'*X_train(i,:).' + b - y_train(i) )*X_train(i,j) );
         end
     end
     dJdwj = sum(dJdwj); % Sum in i (example) dimension
@@ -52,7 +52,7 @@ while ~stopFlag
     % Update the bias
     dJdb = 0; % partial derivative
     for i = 1:m
-        dJdb = dJdb + (1/m)*( w.'*X_train(i,:).'+b-y_train(i) );
+        dJdb = dJdb + (1/m)*( w.'*X_train(i,:).' + b - y_train(i) );
     end
 
     % Simultaneous update
@@ -69,7 +69,7 @@ while ~stopFlag
     % criteria is met
     J_tmp = 0;
     for i = 1:m
-        J_tmp = J_tmp + (w.'*X_train(i,:).'+b-y_train(i))^2;
+        J_tmp = J_tmp + (w.'*X_train(i,:).' + b - y_train(i))^2;
     end
     J = (1/(2*m))*J_tmp;
     J_vec = cat(1,J_vec,J);
