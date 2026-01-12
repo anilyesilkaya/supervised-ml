@@ -328,8 +328,8 @@ axis equal %[output:257f2b23]
 %[text] Next, let's take a look how you can train the logistic regression algorithm. In order to do so we will start with the cost function and we will move onto how to implement gradient descent (GD) to the logistic regression.
 %[text] %[text:anchor:H_4b13] ## References
 %[text] \[1\] David Spiegelhalter, "The Art of Statistics: Learning from Data"
-%[text] \[2\] Andrew Ng, "Supervised Machine Learning: Regression and Classification", Coursea.
-%[text] 
+%[text] \[2\] Andrew Ng, "Supervised Machine Learning: Regression and Classification", Coursera.
+%[text] *© 2025 Anil Yesilkaya — MIT License*
 
 %[appendix]{"version":"1.0"}
 %---

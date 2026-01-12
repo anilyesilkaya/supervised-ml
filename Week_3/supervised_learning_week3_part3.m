@@ -237,6 +237,7 @@ fprintf('Final values - Cost: %.4f | w: %.4f | b: %.4f\n ', J_vec(end), w_vec(en
 %[text] $\\frac{\\text{d}}{\\text{d}x}\\sigma(x) = -\\left( 1+e^{-x} \\right)^{-2}\\left( -e^{-x} \\right) = \\left( 1+e^{-x} \\right)^{-2}\\left( e^{-x} +1-1 \\right) = \\frac{\\left(1+e^{-x}\\right)-1}{ \\left( 1+e^{-x} \\right)^{2} } \\\\\n= \\frac{1}{ \\left( 1+e^{-x} \\right)}  - \\frac{1}{\\left( 1+e^{-x} \\right)^{2}} = \\frac{1}{ \\left( 1+e^{-x} \\right)} \\bigg( 1-\\frac{1}{\\left( 1+e^{-x} \\right)} \\bigg) \\quad ,$
 %[text] Finally,
 %[text] $\\frac{\\text{d}}{\\text{d}x}\\sigma(x) = \\sigma(x) \\big( 1-\\sigma(x) \\big) \\quad \\\#$
+%[text] *© 2025 Anil Yesilkaya — MIT License*
 
 %[appendix]{"version":"1.0"}
 %---

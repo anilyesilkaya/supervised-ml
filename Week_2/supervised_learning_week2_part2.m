@@ -251,6 +251,7 @@ function output = zScoreNormalizeFeatures(input)
     sigma = sqrt(mean((input-mu).^2));
     output = (input-mu)./sigma;
 end
+%[text] *© 2025 Anil Yesilkaya — MIT License*
 
 %[appendix]{"version":"1.0"}
 %---

@@ -153,7 +153,7 @@ colorbar %[output:34be8444]
 %[text] The overview of what we are aiming with gradient descent;
 %[text] - Have some function $J(w,b)$
 %[text] - We want to minimize this function such that $\\underset{w,b}{\\mathrm{min}}\\left\\{ J(w,b) \\right\\} = \\underset{w,b}{\\mathrm{min}}\\left\\{ \\frac{1}{2m}\\sum\_{i=1}^{m}  \\left( wx^{(i)}+b- y^{(i)}\\right)^2 \\right\\}$, where the $(w,b)$ pair that minimizes the given function becomes our solution. It turns out that the gradient descent algorithm can minimize not only linear regression cost function but any function that is convex. \
-%[text] %[text:anchor:H_5965BE43] #### Methodology
+%[text] ### Methodology
 %[text] 1. We start with some initial guesses of $w$ and $b$ (random initialization). For instance, in linear regression it won't matter what the initial values are. Hence, the common choice is setting them to zero $w=0$ and $b=0$.
 %[text] 2. Keep changing the parameters $w$ and $b$ a bit every time/iteration to reduce the cost $J(w,b)$.
 %[text] 3. Repeat step 2 until (hopefully) we settle at or near minimum. Note that for some cost functions that might not have a bowl shape (non-convex) it is possible to have more than 1 minimum value. \
@@ -213,7 +213,7 @@ hInteractiveGradPlot(w_selected); %[output:6fe37f17]
 %[text] - If you are at a local minimum already, further gradient descent steps won't change anything since the derivative of the cost function equals to zero, which means that $w$ won't be updated. \
 %[text] It is important note that as we approach the local minimum, gradient descent will automatically take smaller steps due to the smaller derivative of the cost function. Therefore, gradient descent can reach local minimum without decreasing the learning rate. **In other words, gradient descent can reach local minimum with a fixed learning rate.**
 %[text] We can use gradient descent algorithm to minimize any cost function $J$, not just the mean squared error cost function that we are using for linear regression.
-%[text] %[text:anchor:H_3D466374] ### Putting It Altogether
+%[text] ## Putting It Altogether
 %[text] So far we had the following:
 %[text] - **Linear regression model:** $f\_{w,b}(x) = wx + b$
 %[text] - **Cost function (squared error):** $J(w,b) = \\frac{1}{2m}\\sum\_{i=1}^{m} \\left( f\_{w,b}(x^{(i)})-y^{(i)} \\right)^2 = \\frac{1}{2m}\\sum\_{i=1}^{m} \\left( wx^{(i)}+b-y^{(i)} \\right)^2$
@@ -316,7 +316,8 @@ end
 
 end
 %[text] %[text:anchor:H_A0CAEE9B] ## References
-%[text] \[1\] Coursera - "[Supervised Machine Learning: Regression and Classification](https://www.coursera.org/learn/machine-learning/)"
+%[text] \[1\] Coursera - [Supervised Machine Learning: Regression and Classification](https://www.coursera.org/learn/machine-learning/)
+%[text] *© 2025 Anil Yesilkaya — MIT License*
 
 %[appendix]{"version":"1.0"}
 %---

@@ -270,6 +270,7 @@ end
 function output = zScoreNormalization(input)
     output = (input - mean(input)) / sqrt(var(input));
 end
+%[text] *© 2025 Anil Yesilkaya — MIT License*
 
 %[appendix]{"version":"1.0"}
 %---
