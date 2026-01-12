@@ -3,7 +3,7 @@
 An introduction to supervised machine learning, focusing on **regression** and **classification**, inspired by Andrew Ng’s Coursera course  
 **[Supervised Machine Learning: Regression and Classification](https://www.coursera.org/learn/machine-learning)**.
 
-The full course content is implemented in **MATLAB**, with additional experiments and extensions beyond the original syllabus.
+The full course content (lectures and labs)  is implemented in **MATLAB**, with additional experiments and extensions beyond the original syllabus.
 
 🌐 **Website:** https://anilyesilkaya.github.io/supervised-ml/
 
