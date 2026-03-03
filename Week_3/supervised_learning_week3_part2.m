@@ -1,7 +1,7 @@
-%[text] %[text:anchor:T_24E4999D] # Supervised Learning - Week 3 / Part 2
+%[text] %[text:anchor:T_24E4999D] # Supervised Learning - Week 3 (Part 2)
 %[text:tableOfContents]{"heading":"Table of Contents"}
 %[text] %[text:anchor:H_1F8D4F4A] ## Cost Function for Logistic Regression
-%[text] It is important to note that the cost function gives us a way to measure how well a specific algorithm fits the training data. Therefore, we can use that information to choose better parameters. We will see shortly why a squared error cost function is not an ideal cost function for logistic regression algortihm and we will find a better cost function for the classification task.
+%[text] It is important to note that the cost function gives us a way to measure how well a specific algorithm fits the training data. Therefore, we can use that information to choose better parameters. We will see shortly why a squared error cost function is not an ideal cost function for logistic regression algorithm and we will find a better cost function for the classification task.
 %[text] The following data would be a potential dataset for a logistic regression task
 tumorSize = [10; 2; 5; 12];
 patientAge = [52; 73; 55; 49];
@@ -61,7 +61,7 @@ grid on %[output:11a1de7a]
 legend("-log(f) given that y = 1") %[output:11a1de7a]
 %[text] - If the algorithm predicts a value close to 1 and the true label is also 1, the loss function output will be close to 0.
 %[text] - If the algorithm predicts a value close to 0 and the true label is 1, the loss function output will be close to a very large value (limit goes to $+\\infty$). \
-%[text] Therefore, when $y=1$, the loss function incentivizes to make more accurate prediction since the loss is lowest when the $f\_{\\mathbf{x},b}(\\mathbf{x}^{(i)})$ predicts close to the true label $y^{(i)}$.
+%[text] Therefore, when $y=1$, the loss function incentives to make more accurate prediction since the loss is lowest when the $f\_{\\mathbf{x},b}(\\mathbf{x}^{(i)})$ predicts close to the true label $y^{(i)}$.
 %[text] %[text:anchor:H_66103EFC] ### Case y = 0
 %[text] Let's also look at the case when the true label $y^{(i)}=0$, by plotting $-\\log\\left( 1 - f\_{\\mathbf{w},b}( \\mathbf{x}^{(i)}) \\right)$:
 f = linspace(0,1,1e3);
@@ -187,7 +187,7 @@ title('Mean squared error (MSE) loss for a logistic regression task') %[output:6
 %[text] Let's define the loss function first
 %[text] $L(f\_{\\mathbf{w},b}( \\mathbf{x}^{(i)}), y^{(i)})\n\\left\\{\n    \\begin{array}{lr}\n        -\\log\\left( f\_{\\mathbf{w},b}( \\mathbf{x}^{(i)}) \\right), & \\text{if } y^{(i)} = 1  \\\\\n        -\\log\\left( 1 - f\_{\\mathbf{w},b}( \\mathbf{x}^{(i)}) \\right), & \\text{if } y^{(i)} = 0\n    \\end{array}$, where this expression could be simplified to the following form:
 %[text]{"align":"center"} $L(f\_{\\mathbf{w},b}( \\mathbf{x}^{(i)}), y^{(i)})\n=  -y^{(i)}\\log\\left( f\_{\\mathbf{w},b}( \\mathbf{x}^{(i)}) \\right)  - (1-y^{(i)})\\log\\left( 1-f\_{\\mathbf{w},b}( \\mathbf{x}^{(i)}) \\right)$
-%[text] where the above expression is called **binary cross-entropy loss** function. It is important to note that the loss function above consists of two seperate curves; one for each label $y^{(i)} = 1$ and $y^{(i)} = 0$. When, both expressions are combined into a single expression it becomes quite useful as it returns very large values (approaches to $+\\infty$) when the model's prediction is far from the actual label and very small values (approaches to $0$) when the model's predictions are accurate.
+%[text] where the above expression is called **binary cross-entropy loss** function. It is important to note that the loss function above consists of two separate curves; one for each label $y^{(i)} = 1$ and $y^{(i)} = 0$. When, both expressions are combined into a single expression it becomes quite useful as it returns very large values (approaches to $+\\infty$) when the model's prediction is far from the actual label and very small values (approaches to $0$) when the model's predictions are accurate.
 %[text] Let's take a look at the solution space by using this new loss function, we will be using the same cancer dataset as the previous cost function plotting.
 % Load the classification dataset (m = 155 (# of samples), n = 3 (# of features))
 % Targets y: 0-male, 1-female

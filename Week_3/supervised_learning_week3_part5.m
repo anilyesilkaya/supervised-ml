@@ -1,7 +1,7 @@
-%[text] %[text:anchor:T_555b] # Supervised Learning - Week 3 / Part 5
+%[text] %[text:anchor:T_555b] # Supervised Learning - Week 3 (Part 5)
 %[text:tableOfContents]{"heading":"Table of Contents"}
 %[text] %[text:anchor:H_238a] ## Addressing Ovefitting
-%[text] It is important to be able to realize that overfitting or underfitting might be occurring in our training processes. Let's see what we can do if we are suspecting that our training is suffering from overfitting. Let's say we have a model and it has a high variance, in other words it is overfitting. Let's see the overfitting house prediction model as follows:
+%[text] It is important to be able to realize that overfitting might be occurring in our training processes. Let's see what we can do if we are suspecting that our training is suffering from overfitting. Let's say we have a model and it has a <u>high variance</u>, in other words it is <u>overfitting</u>. Let's see the overfitting house prediction model as follows:
 rng(11);
 co = colororder;
 
@@ -25,8 +25,8 @@ grid on %[output:73fc39ab]
 hold off %[output:73fc39ab]
 legend('Data', '30^{th}-order Fit', 'Location', 'northwest') %[output:73fc39ab]
 title("Overfitting") %[output:73fc39ab]
-%[text] - **1) One way to address this problem** is to collect more training data. If you are able to get more training samples then the learning algorithm learns to fit a function that is less wiggly. Thus, we can continue to fit a high order polynomial or some function with a lot of features and if we have enough training examples it will still do okay. As a summary, the number one tool we can use against overfitting is to get more training data. Getting more data isn't always an options since there may be only so many houses have been sold in this location and maybe there is no more information to be added. However, if the data was available this would work really well. \
-%[text] - **2) Second option for addressing overfitting is to see if you can use fewer features.** In the previous week's application our input features included the size ($x$), size squared ($x^2$), cubed ($x^3$), fourth ($x^4$) so on and so forth, where those were a lot of polynomial features. To reduce the overfitting we can use reduced number of polynomial features. Let's look at the following example: \
+%[text] - **1) One way to address this problem** is to collect more training data. If you are able to get more training samples then the learning algorithm learns to fit a function that is less wiggly. Thus, we can continue to fit a high order polynomial or some function with a lot of features and if we have enough training examples it will still do okay. Consequently, the number one tool we can use against overfitting is to get more training data. However, getting more data isn't always an options since there may be only so many houses have been sold in this location and maybe there is no more information to be added. However, if the data was available this would work really well. \
+%[text] - **2) Second option for addressing overfitting is to see if you can use fewer features.** In the previous week's application our input features included the size ($x$), size squared ($x^2$), cubed ($x^3$), fourth ($x^4$) so on and so forth, where those were a lot of polynomial features. To reduce the overfitting we can use reduced number of polynomial features, let's look at the following example. \
 %[text] Let's assume that we have the following features of a house which we try to predict its price,
 %[text:table]{"ignoreHeader":true}
 %[text] | <p>size</p><p>($x\_1$)</p> | <p>\# of bedrooms</p><p>($x\_2$)</p> | <p>\# of floors</p><p>($x\_3$)</p> | <p>age</p><p>($x\_4$)</p> | <p>avg income</p><p>($x\_5$)</p> | ... | <p>distance to the coffee shop</p><p>($x\_{100}$)</p> | <p>price</p><p>($y$)</p> |
@@ -85,9 +85,9 @@ legend(arrayfun(@(x) "n: "+x, n_vec), 'Location', 'best') %[output:13626494]
 %[text] %[text:anchor:H_0ddd] ### Recap
 %[text] There three ways to address overfitting issue,
 %[text] 1. **Collect more data:** If doable this can help really help reduce overfitting. This solution might not be feasible in every problem/scenario. If it is feasible, this is the straightforward way to reduce overfitting since doesn't require any change in the model.
-%[text] 2. **Select subset of featues:** This solution will be explained further in the following tutorials. The problem with this solution is that the whole features set might have some importance for model to generalize the underlying behaviour. Moreover, selection of the features brings an additional dimension to the problem since it would affect the model performance directly.
+%[text] 2. **Select subset of features:** This solution will be explained further in the following tutorials. The problem with this solution is that the whole features set might have some importance for model to generalize the underlying behaviour. Moreover, selection of the features brings an additional dimension to the problem since it would affect the model performance directly.
 %[text] 3. **Reduce the size of parameters using "Regularization":** This is a very useful technique not only for linear and logistic regression applications but also neural networks specifically. \
-%[text] %[text:anchor:H_8d38] ### Futher Insight: Overfitting
+%[text] %[text:anchor:H_8d38] ### Further Insight: Overfitting
 %[text] - A high-order polynomial model will have enough flexibility to pass exactly through every training point, especially if there are very few of them (sparse data). When you fit such a complex curve to a small dataset, the model can end up <u>wiggling</u> to interpolate any noise or tiny fluctuations in the training labels rather than capturing the true underlying trend. In other words, it will have a very low training error but poor generalization on new points - this is exactly what we mean by overfitting.
 %[text] - What can be done to avoid overfitting?  \
 %[text] **1) Adding more data points:** As we add data, the model faces more constraints where it can no longer contort itself to fit small number of points (e.g. 20 points); now it needs to fit 100, 500, or 10 000 points. If those extra points actually reflect the same underlying pattern (plus noise), a model that was previously <u>over-wiggly</u> will be <u>pulled</u> towards the true trend. 

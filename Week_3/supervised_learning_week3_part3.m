@@ -1,4 +1,4 @@
-%[text] %[text:anchor:T_484c] # Supervised Learning - Week 3 / Part 3
+%[text] %[text:anchor:T_484c] # Supervised Learning - Week 3 (Part 3)
 %[text:tableOfContents]{"heading":"Table of Contents"}
 %[text] %[text:anchor:H_6ff6] ## Simplified Cost Function
 %[text] In the previous file we saw the loss function and the cost function for the logistic regression. In this file we will see a simpler way to write the loss and cost functions for a logistic regression task. Therefore, the implementation will be simpler when we need to implement logistic regression using gradient descent (GD).
@@ -10,7 +10,7 @@
 %[text] $J(\\mathbf{w},b) = \\frac{1}{m} \\sum\_{i=1}^{m} L \\left( f\_{\\mathbf{w},b} (\\mathbf{x}^{(i)}), y^{(i)}  \\right) = -\\frac{1}{m} \\sum\_{i=1}^{m} \\bigg( \\left( 1-y^{(i)} \\right)\\log\\left(1-f\_{\\mathbf{w},b}(\\mathbf{x}^{(i)}) \\right) + y^{(i)}\\log\\left( f\_{\\mathbf{w},b}(\\mathbf{x}^{(i)}) \\right) \\bigg)$
 %[text] An important question this point is that "Why did we chose this particular loss function, where there are plenty of other alternative loss functions out there?"
 %[text] This particular loss function is derived using **maximum likelihood estimation (MLE)**. Also, this cost function has good properties of being convex, which is crucial for the GD implementation.
-%[text]  In the upcoing lab, we will see how the logistic regression cost function is implemented. Moreober, we will also see that how two different selection of a parameter leads to two different loss functions.
+%[text]  In the upcoming lab, we will see how the logistic regression cost function is implemented. Moreover, we will also see that how two different selection of a parameter leads to two different loss functions.
 %[text] %[text:anchor:H_05f0] ## Optional Lab: Cost Function for Logistic Regression
 %[text] Let's use the data set that we used while working on the decision boundaries
 X_train = [0.5, 1.5; 1, 1; 1.5, 0.5; 3, 0.5; 2, 2; 1, 2.5];
@@ -88,7 +88,7 @@ fprintf('Cost for b = -4 (J): %.10G\n', J2); %[output:81122e3f]
 %[text] $w\_j = w\_j - \\alpha\\frac{\\partial J(\\mathbf{w},b)}{\\partial w\_j} \~,$
 %[text] $b = b - \\alpha\\frac{\\partial J(\\mathbf{w},b)}{\\partial b}$
 %[text] }
-%[text] where $j \\in \\{1,2,\\cdots,n\\}$ and $n$ represents the number of features. You repetively update the parameters $\\mathbf{w}$ and $b$ based on the derivative of the cost function, $J(\\mathbf{w},b)$, with respect to the parameters. Let's calculate the terms $\\frac{\\partial J(\\mathbf{w},b)}{\\partial w\_j}$ and $\\frac{\\partial J(\\mathbf{w},b)}{\\partial b}$ to implement the GD algorithm.
+%[text] where $j \\in \\{1,2,\\cdots,n\\}$ and $n$ represents the number of features. You repetitively update the parameters $\\mathbf{w}$ and $b$ based on the derivative of the cost function, $J(\\mathbf{w},b)$, with respect to the parameters. Let's calculate the terms $\\frac{\\partial J(\\mathbf{w},b)}{\\partial w\_j}$ and $\\frac{\\partial J(\\mathbf{w},b)}{\\partial b}$ to implement the GD algorithm.
 %[text] - Let's start with $\\frac{\\partial J(\\mathbf{w},b)}{\\partial w\_j}$ \
 %[text] %[text:anchor:H_37a7] ### Partial derivative of the cost function w.r.t weights
 %[text] $\\frac{\\partial J(\\mathbf{w},b)}{\\partial w\_j}\n\n= \\frac{\\partial}{\\partial w\_j} \\bigg( -\\frac{1}{m} \\sum\_{i=1}^{m} \\bigg( y^{(i)}\\log\\left( f\_{\\mathbf{w},b}(\\mathbf{x}^{(i)}) \\right) + \\left( 1-y^{(i)} \\right)\\log\\left(1-f\_{\\mathbf{w},b}(\\mathbf{x}^{(i)}) \\right) \\bigg) \\bigg) \\\\\n\n= -\\frac{1}{m} \\sum\_{i=1}^{m} \\bigg( \\frac{\\partial}{\\partial w\_j} \\left( y^{(i)}\\log\\left( f\_{\\mathbf{w},b}(\\mathbf{x}^{(i)}) \\right) \\right) + \\frac{\\partial}{\\partial w\_j} \\left( \\left( 1-y^{(i)} \\right)\\log\\left(1-f\_{\\mathbf{w},b}(\\mathbf{x}^{(i)}) \\right) \\right) \\bigg).$

@@ -1,8 +1,8 @@
-%[text] %[text:anchor:T_24E4999D] # Supervised Learning - Week 3 / Part 1
+%[text] %[text:anchor:T_24E4999D] # Supervised Learning - Week 3 (Part 1)
 %[text:tableOfContents]{"heading":"Table of Contents"}
 %[text] %[text:anchor:H_4404] ## Introduction
 %[text] The following example from \[1\] shows why we need logistic regression in a good intuitive way, where in the rest of the chapter we will also learn more about practical implications of logistic regression and why linear regression is not enough for modelling certain scenarios.
-%[text] Let's look at the following child heart surgery data, which shows the proportions surviving surgery and the number of cases treated in each hostpital between 1991 and 1995. Please bottom outlying data point, which represents Bristol has been ignored in linear curve fitting.
+%[text] Let's look at the following child heart surgery data, which shows the proportions surviving surgery and the number of cases treated in each hospital between 1991 and 1995. Please bottom outlying data point, which represents Bristol has been ignored in linear curve fitting.
 % Child surgery data entered manually from [1]
 numOperations = [150 120 151 152 190 200 250 300 320 400 485 595];
 percSurvival = [70 81 84 85 86 86 90 87 93 87 86 89];
@@ -24,7 +24,7 @@ grid on %[output:8a08e86d]
 %[text] 2\) We can see that if the number of operations is too low or high the predicted survival rate would be less than and greater than 0% and 100%, respectively, which is absurd (not too obvious conclusion).
 %[text] Consequently, we need a model which does a better job especially if it contains categorical and probability based labels.
 %[text] %[text:anchor:H_F6157C72] ## 1 - Classification with Logistic Regression
-%[text] Previously we've learnt about linear regression, which means that we try to predict a continuous number as accurately as possible. Now, we will learn about classification, where we will try to predict the value of an output is a member of a finite set of values. It is important to note that after trying linear regression algorithm in classification problems, we realized that the linear regression is not what we need for classificaiton. Let's take a look at why this is the case first. Then, we will take a look at an another algorithm called "logistic regression", which is one of the most popular classification algortihm.
+%[text] Previously we've learnt about linear regression, which means that we try to predict a continuous number as accurately as possible. Now, we will learn about classification, where we will try to predict the value of an output is a member of a finite set of values. It is important to note that after trying linear regression algorithm in classification problems, we realized that the linear regression is not what we need for classification. Let's take a look at why this is the case first. Then, we will take a look at an another algorithm called "logistic regression", which is one of the most popular classification algorithm.
 %[text] Let's take a look at some examples of classification problems:
 %[text:table]{"ignoreHeader":true}
 %[text] | **Question** | **Answer "y"** |
@@ -35,7 +35,7 @@ grid on %[output:8a08e86d]
 %[text:table]
 %[text] 
 %[text] In each of the examples above, the variable we'd like to predict can only take two values: Yes or No. This kind of classification problem where there are only two possible outcomes is called <u>"binary classification"</u>. In those problems we will use the terms "class" and "category" interchangeably. We often designate the classes in a logical fashion such as Yes = true (1 or "positive class") and No = false (0 or "negative class"). From now on, we will use the 0 and 1 notation to represent $y${"editStyle":"visual"} since it is the simpliest way to implement the numerical values into our learning algorithms. 
-%[text] - Please note that negative and positive classes not necessarily mean evil versus good. Normally any selection of the labelling shouldn't affec the training and/or the performance of the algorithm. \
+%[text] - Please note that negative and positive classes not necessarily mean evil versus good. Normally any selection of the labelling shouldn't affect the training and/or the performance of the algorithm. \
 %[text] %[text:anchor:H_373335E4] ### How do we create a classification algorithm?
 %[text] Let's check the dataset for classifying whether the tumor is malignant or benign. The class 1 (positive class) will represent malignant and class 0 (negative class) will represent a benign tumor.
 x = 1:8;
@@ -71,7 +71,7 @@ hold on %[output:0197b41b]
 scatter(x_pos,y_pos,'rd','filled') %[output:0197b41b]
 xlabel('tumor size (diameter in cm)') %[output:0197b41b]
 ylabel('Is malignant?') %[output:0197b41b]
-% Let's asssume that we know the parameters of the linear regression w =
+% Let's assume that we know the parameters of the linear regression w =
 % 0.1667 and b = 0.3 for the given data set and if we plot the fit
 y = (0.1667).*x-0.3;
 plot(x,y,'k','LineWidth',1.5) % linear regression plot %[output:0197b41b]
@@ -135,12 +135,12 @@ grid on %[output:767a1a20]
 %[text] - Note that this new data point shouldn't change how we classify the other data points. However, once we add this extra training example the best fit line's slope will become smaller. Therefore, the new threshold value, which is the point of intersection between the best fit line and the 0.5 threshold has shifted towards right hand side.
 %[text] - Consequently, the positive class (Malignant) training sample right next to the green line in the above plot will now classified as a negative class (Benign).
 %[text] - This is not what we want since adding a new example of one particular class shouldn't change (in a negative way) any of our conclusions about how to classify "Benign" and "Malignant" tumors.
-%[text] - If we approach a classification problem with a linear regression algorithm we end up having a much worse best fit line every single time we add a training sample, which causes a big misclassification issue. Sometimes you might get lucky and linear classification work with the given data, however, often we need a different algorithm to approach the classification problems for better classification accuracy. \
+%[text] - If we approach a classification problem with a linear regression algorithm we end up having a much worse best fit line every single time we add a training sample, which causes a big misclassifications issue. Sometimes you might get lucky and linear classification work with the given data, however, often we need a different algorithm to approach the classification problems for better classification accuracy. \
 %[text] Next we will learn about the decision boundary and logistic regression algorithms.
 %%
 %[text] %[text:anchor:H_1687DF49] ### 1.1 - Lab: Classification Using Linear Regression
 %[text] In this lab we will see the differences between the regression and classification problems. In order to do that we will run the linear regression algorithm on a classification dataset and observe if the best fit could be useful for binary classification of the data. The markers in the classification data set is often used to indicate the predicted outcome of a sample/example. 
-%[text] In the plots below, 'x' will be used to represent the positive class and 'o' will be used to prepresent negative class samples.
+%[text] In the plots below, 'x' will be used to represent the positive class and 'o' will be used to represent negative class samples.
 % Generate the dataset
 X_train = [0, 1, 2, 3, 4, 5].';
 y_train = [0, 0, 0, 1, 1, 1];
@@ -173,8 +173,8 @@ f.Position = [0 0 700 400]; %[output:3c59604f]
 %[text] **Observation - 2:** In the second plot, the y-axis is not available. The positive and negative samples are also shown by using the same notation convention.
 %[text] - In the case of  linear regression with multiple variables, y would not be limited to only two values and a similar plot would be three dimensional. \
 %[text] %[text:anchor:H_180FB7F2] ### Linear Regression Approach for Classification Problem
-%[text] In the previous weeks we built a prediction model, which had ability to do linear regression using batch gradent descent algorithm. Let's try the same approach here to a classificaiton problem. The model has to predict if a tumor is benign or malignant based on the tumor size. Try the following steps:
-%[text] 1. Run single varible linear regression algorithm on the given data. Note that the resulting linear model **does not** match the data well. One option to improve the results is the introduce a threshold.
+%[text] In the previous weeks we built a prediction model, which had ability to do linear regression using batch gradient descent algorithm. Let's try the same approach here to a classification problem. The model has to predict if a tumor is benign or malignant based on the tumor size. Try the following steps:
+%[text] 1. Run single variable linear regression algorithm on the given data. Note that the resulting linear model **does not** match the data well. One option to improve the results is the introduce a threshold.
 %[text] 2. Set the activate the threshold and set it to 0.5 to observe the predictions when threshold is applied. Those predictions look better, the predictions now match the data. \
   %[control:button:4960]{"position":[1,2]}
 
@@ -199,7 +199,7 @@ ylabel('y') %[output:43098b6b]
 title('Classification using linear regression') %[output:43098b6b]
 grid on %[output:43098b6b]
 hold off %[output:43098b6b]
-%[text] - **Important note:** Add more 'malignant' data points on the far right, in the large tumor size range (near  10 cm), and re-run the BGD based linear regression algortihm. Now the model predict the large tumor correctly, however, the data point at x = 3 is being incorrectly predicted.
+%[text] - **Important note:** Add more 'malignant' data points on the far right, in the large tumor size range (near  10 cm), and re-run the BGD based linear regression algorithm. Now the model predict the large tumor correctly, however, the data point at x = 3 is being incorrectly predicted.
 %[text] - This clearly shows us adding "better" (large tumor size) malignant samples should be making model predictions more accurate, whereas in our case it played and adversarial effect. Therefore, we can conclude that the linear regression algorithm is not sufficient to model such a categorical data. \
 %[text] %[text:anchor:H_37C81AED] ## 2 - Logistic Regression
 %[text] Let's now talk about the logistic regression algorithm, which is probably the most used classification algorithm in the world. Let's continue with the tumor classification example to determine whether a tumor is malignant (1) or benign (0).
@@ -217,7 +217,7 @@ ylabel('g(x)') %[output:80c273b3]
 legend('$g(x)=1/(1+e^{-x})$','Interpreter','latex','Location','southeast') %[output:80c273b3]
 f.Position = [0 0 500 350]; %[output:80c273b3]
 %[text] Let's use the sigmoid function to build up the logistic regression algorithm. We will do this in two steps:
-%[text] **Step 1** -  A linear regression function could be defined as $z =  \\mathbf{x}\\mathbf{w} + b$ where $\\mathbf{x}$ and $\\mathbf{w}$ are the $1 \\times n$ features and $n \\times 1$weights vectors, respectively. We store the result of linear regression in a variable $\\mathbf{z}$. Let's pass this varible into the sigmoid function,
+%[text] **Step 1** -  A linear regression function could be defined as $z =  \\mathbf{x}\\mathbf{w} + b$ where $\\mathbf{x}$ and $\\mathbf{w}$ are the $1 \\times n$ features and $n \\times 1$weights vectors, respectively. We store the result of linear regression in a variable $\\mathbf{z}$. Let's pass this variable into the sigmoid function,
 %[text] $g(z) = \\frac{1}{1+e^{-z}}$. 
 %[text] Now, our output $g(\\mathbf{z})$ will always be in the range of 0 and 1.
 %[text] **Step 2** - If we combine those two expressions we had above we will have the logistic regression formula,
@@ -320,7 +320,7 @@ fplot(x2_neg,[-1 1],'g') %[output:257f2b23]
 hold off %[output:257f2b23]
 grid on %[output:257f2b23]
 axis equal %[output:257f2b23]
-%[text] The region $x\_1^2 + x\_2^2 \\geq 1$ corresponds to the outside of the cirlce where we predict $\\hat{y} = 1$ and $x\_1^2 + x\_2^2 \< 1$ corresponds to the inside of the circle where we predict $\\hat{y} = 0$.
+%[text] The region $x\_1^2 + x\_2^2 \\geq 1$ corresponds to the outside of the circle where we predict $\\hat{y} = 1$ and $x\_1^2 + x\_2^2 \< 1$ corresponds to the inside of the circle where we predict $\\hat{y} = 0$.
 %[text] - **Then, the key question is: Can we come up with even more complex decision boundaries than those ones above?** \
 %[text] The answer is yes!
 %[text] $f\_{\\mathbf{w},b}(\\mathbf{x}) = g(z) = g(w\_1x\_1 + w\_2x\_2 + w\_3x\_1^2 + w\_4x\_1x\_2 + w\_5x\_2^2)$ or
